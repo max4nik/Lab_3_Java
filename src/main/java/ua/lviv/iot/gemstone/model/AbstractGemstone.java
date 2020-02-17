@@ -3,16 +3,16 @@ package ua.lviv.iot.gemstone.model;
 public abstract class AbstractGemstone {
 
     protected String color;
-    protected double pricePerUSDDollar;
+    protected double priceInUSDDollars;
     protected String countryOfOrigin;
     protected String chemicalFormula;
     protected double weightInCarats;
 
     protected double transparencyFromZeroToOne;
 
-    public AbstractGemstone(String color, double pricePerUSDDollar, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne) {
+    public AbstractGemstone(String color, double priceInUSDDollars, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne) {
         this.color = color;
-        this.pricePerUSDDollar = pricePerUSDDollar;
+        this.priceInUSDDollars = priceInUSDDollars;
         this.countryOfOrigin = countryOfOrigin;
         this.chemicalFormula = chemicalFormula;
         this.weightInCarats = weightInCarats;
@@ -27,12 +27,12 @@ public abstract class AbstractGemstone {
         this.color = color;
     }
 
-    public double getPricePerUSDDollar() {
-        return pricePerUSDDollar;
+    public double getPriceInUSDDollars() {
+        return priceInUSDDollars;
     }
 
-    public void setPricePerUSDDollar(double pricePerUSDDollar) {
-        this.pricePerUSDDollar = pricePerUSDDollar;
+    public void setPriceInUSDDollars(double priceInUSDDollars) {
+        this.priceInUSDDollars = priceInUSDDollars;
     }
 
     public String getCountryOfOrigin() {

@@ -1,35 +1,35 @@
 package ua.lviv.iot.gemstone.manager;
 
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
 import ua.lviv.iot.gemstone.model.Necklace;
 import ua.lviv.iot.gemstone.model.SortBy;
 import ua.lviv.iot.gemstone.model.TypeOfSorting;
 
 import java.util.Comparator;
+import java.util.List;
 
 public class GemstoneInNecklaceManagerUtils {
-    private static final GemsSorterByWeightInCarats GEMS_BY_WEIGHT_IN_CARATS_SORTER = new GemsSorterByWeightInCarats();
-    private static final GemsSorterByPricePerCaratInUSDDollars GEMS_BY_PRICE_PER_CARAT_IN_USD_DOLLARS_SORTER = new GemsSorterByPricePerCaratInUSDDollars();
+    private static final NecklaceSorterByAllWeightInCarats NECKLACE_BY_ALL_WEIGHT_IN_CARATS_SORTER = new NecklaceSorterByAllWeightInCarats();
+    private static final NecklaceSorterByPriceInUSDDollars NECKLACE_SORTER_BY_PRICE_IN_USD_DOLLARS = new NecklaceSorterByPriceInUSDDollars();
 
-    public static void sortGemstonesBy(Necklace necklace, SortBy sortBy, TypeOfSorting typeOfSorting) {
+    public static void sortNecklacesBy(List<Necklace> necklaces, SortBy sortBy, TypeOfSorting typeOfSorting) {
 
-        if (sortBy == SortBy.WEIGHT_IN_CARATS) {
-            necklace.getGemstonesInLace().sort(typeOfSorting == TypeOfSorting.ASCENDING ? GEMS_BY_WEIGHT_IN_CARATS_SORTER : GEMS_BY_WEIGHT_IN_CARATS_SORTER.reversed());
-        } else if (sortBy == SortBy.PRICE_PER_CARAT_IN_USD_DOLLARS) {
-            necklace.getGemstonesInLace().sort(typeOfSorting == TypeOfSorting.ASCENDING ? GEMS_BY_PRICE_PER_CARAT_IN_USD_DOLLARS_SORTER : GEMS_BY_PRICE_PER_CARAT_IN_USD_DOLLARS_SORTER.reversed());
+        if (sortBy == SortBy.ALL_WEIGHT_IN_CARATS) {
+            necklaces.sort(typeOfSorting == TypeOfSorting.ASCENDING ? NECKLACE_BY_ALL_WEIGHT_IN_CARATS_SORTER : NECKLACE_BY_ALL_WEIGHT_IN_CARATS_SORTER.reversed());
+        } else if (sortBy == SortBy.PRICE_IN_USD_DOLLARS) {
+            necklaces.sort(typeOfSorting == TypeOfSorting.ASCENDING ? NECKLACE_SORTER_BY_PRICE_IN_USD_DOLLARS : NECKLACE_SORTER_BY_PRICE_IN_USD_DOLLARS.reversed());
         }
 
     }
 
 }
 
-class GemsSorterByWeightInCarats implements Comparator<AbstractGemstone> {
+class NecklaceSorterByAllWeightInCarats implements Comparator<Necklace> {
     @Override
-    public int compare(AbstractGemstone firstGemstone, AbstractGemstone secondGemstone) {
+    public int compare(Necklace firstNecklace, Necklace secondNecklace) {
 
-        if (firstGemstone.getWeightInCarats() < secondGemstone.getWeightInCarats()) {
+        if (firstNecklace.getAllWeightInCarats() < secondNecklace.getAllWeightInCarats()) {
             return -1;
-        } else if (firstGemstone.getWeightInCarats() > secondGemstone.getWeightInCarats()) {
+        } else if (firstNecklace.getAllWeightInCarats() > secondNecklace.getAllWeightInCarats()) {
             return 1;
         } else {
             return 0;
@@ -37,12 +37,12 @@ class GemsSorterByWeightInCarats implements Comparator<AbstractGemstone> {
     }
 }
 
-class GemsSorterByPricePerCaratInUSDDollars implements Comparator<AbstractGemstone> {
+class NecklaceSorterByPriceInUSDDollars implements Comparator<Necklace> {
     @Override
-    public int compare(AbstractGemstone firstGemstone, AbstractGemstone secondGemstone) {
-        if (firstGemstone.getPricePerUSDDollar() < secondGemstone.getPricePerUSDDollar()) {
+    public int compare(Necklace firstNecklace, Necklace secondNecklace) {
+        if (firstNecklace.getPriceInUSDDollars() < secondNecklace.getPriceInUSDDollars()) {
             return -1;
-        } else if (firstGemstone.getPricePerUSDDollar() > secondGemstone.getPricePerUSDDollar()) {
+        } else if (firstNecklace.getPriceInUSDDollars() > secondNecklace.getPriceInUSDDollars()) {
             return 1;
         } else {
             return 0;

@@ -15,7 +15,7 @@ public class GemstoneInNecklaceManagerTest extends BaseGemstoneInNecklaceTest {
 
     @BeforeEach
     public void setUp() {
-        gemstoneInNecklaceManager = new GemstoneInNecklaceManager(necklace);
+        gemstoneInNecklaceManager = new GemstoneInNecklaceManager(professionalNecklace);
 
     }
 

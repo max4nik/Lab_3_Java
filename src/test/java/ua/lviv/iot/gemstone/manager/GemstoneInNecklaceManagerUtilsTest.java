@@ -1,41 +1,36 @@
 package ua.lviv.iot.gemstone.manager;
 
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
 import ua.lviv.iot.gemstone.model.SortBy;
 import ua.lviv.iot.gemstone.model.TypeOfSorting;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GemstoneInNecklaceManagerUtilsTest extends BaseGemstoneInNecklaceTest {
 
-    private List<AbstractGemstone> gemstones = necklace.getGemstonesInLace();
-
 
     @Test
     public void testSortGemstonesByPriceAsc() {
 
-        GemstoneInNecklaceManagerUtils.sortGemstonesBy(necklace, SortBy.PRICE_PER_CARAT_IN_USD_DOLLARS, TypeOfSorting.ASCENDING);
-        assertEquals(105, gemstones.get(0).getPricePerUSDDollar());
-        assertEquals(500, gemstones.get(1).getPricePerUSDDollar());
-        assertEquals(999, gemstones.get(2).getPricePerUSDDollar());
+        GemstoneInNecklaceManagerUtils.sortNecklacesBy(necklaces, SortBy.PRICE_IN_USD_DOLLARS, TypeOfSorting.ASCENDING);
+        assertEquals(699, necklaces.get(0).getPriceInUSDDollars());
+        assertEquals(1604, necklaces.get(1).getPriceInUSDDollars());
+        assertEquals(2303, necklaces.get(2).getPriceInUSDDollars());
 
     }
 
     @Test
     public void testSortGemstonesByWeightInCaratsDesc() {
 
-        GemstoneInNecklaceManagerUtils.sortGemstonesBy(necklace, SortBy.WEIGHT_IN_CARATS, TypeOfSorting.DESCENDING);
-        assertEquals(20.5, gemstones.get(0).getWeightInCarats());
-        assertEquals(15.1, gemstones.get(1).getWeightInCarats());
-        assertEquals(12.5, gemstones.get(2).getWeightInCarats());
+        GemstoneInNecklaceManagerUtils.sortNecklacesBy(necklaces, SortBy.ALL_WEIGHT_IN_CARATS, TypeOfSorting.DESCENDING);
+        assertEquals(89.39999999999999, necklaces.get(0).getAllWeightInCarats());
+        assertEquals(48.1, necklaces.get(1).getAllWeightInCarats());
+        assertEquals(41.3, necklaces.get(2).getAllWeightInCarats());
 
     }
 
     @Test
     public void testSortEmptyList() {
-        GemstoneInNecklaceManagerUtils.sortGemstonesBy(null, null, null);
+        GemstoneInNecklaceManagerUtils.sortNecklacesBy(null, null, null);
     }
 }

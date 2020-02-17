@@ -5,25 +5,23 @@ import java.util.List;
 
 public class Necklace {
 
-    private List <AbstractGemstone> gemstonesInLace = new LinkedList<>();
-    private Double laceWeightInGrams;
+    private List<AbstractGemstone> gemstonesInLace = new LinkedList<>();
     private Double priceInUSDDollars;
-    private Double allWeightInGrams;
+    private Double allWeightInCarats;
     private Double necklaceLength;
 
-    public Necklace(){
+    public Necklace() {
 
     }
 
-    public Necklace(List<AbstractGemstone> gemstonesInLace, Double laceWeightInGrams, Double priceInUSDDollars, Double necklaceLength) {
+    public Necklace(List<AbstractGemstone> gemstonesInLace, Double priceInUSDDollars, Double necklaceLength) {
         this.gemstonesInLace = gemstonesInLace;
-        this.laceWeightInGrams = laceWeightInGrams;
         this.priceInUSDDollars = priceInUSDDollars;
         this.necklaceLength = necklaceLength;
     }
 
-    public Necklace(List<AbstractGemstone> gemstonesInLace){
-        this(gemstonesInLace, null, null, null);
+    public Necklace(List<AbstractGemstone> gemstonesInLace) {
+        this(gemstonesInLace, null, null);
     }
 
     public List<AbstractGemstone> getGemstonesInLace() {
@@ -34,24 +32,12 @@ public class Necklace {
         this.gemstonesInLace = gemstonesInLace;
     }
 
-    public double getLaceWeightInGrams() {
-        return laceWeightInGrams;
-    }
-
-    public void setLaceWeightInGrams(Double laceWeightInGrams) {
-        this.laceWeightInGrams = laceWeightInGrams;
-    }
-
     public double getPriceInUSDDollars() {
         return priceInUSDDollars;
     }
 
-    public void setPriceInUSDDollars(Double priceInUSDDollars) {
-        this.priceInUSDDollars = priceInUSDDollars;
-    }
-
-    public double getAllWeightInGrams() {
-        return allWeightInGrams;
+    public double getAllWeightInCarats() {
+        return allWeightInCarats;
     }
 
     public double getNecklaceLength() {
@@ -62,23 +48,31 @@ public class Necklace {
         this.necklaceLength = necklaceLength;
     }
 
-    public void addGemstone(AbstractGemstone gemstone){
+    public void addGemstone(AbstractGemstone gemstone) {
         this.gemstonesInLace.add(gemstone);
     }
 
-    public void addGemstones(List<AbstractGemstone> gemstones){
+    public void addGemstones(List<AbstractGemstone> gemstones) {
         this.gemstonesInLace.addAll(gemstones);
     }
 
-    public double calculateAllWeightInGrams(){
+    public double calculateAllWeightInCarats() {
         double allGemstonesWeight = 0;
-        for (AbstractGemstone gemstones : this.gemstonesInLace){
-            allGemstonesWeight += (gemstones.getWeightInCarats() * 0.2);
+        for (AbstractGemstone gemstones : this.gemstonesInLace) {
+            allGemstonesWeight += gemstones.getWeightInCarats();
         }
-        this.allWeightInGrams = this.laceWeightInGrams + allGemstonesWeight;
-        return allWeightInGrams;
+        this.allWeightInCarats = allGemstonesWeight;
+        return allWeightInCarats;
     }
 
+    public double calculatePriceInUSDDollars() {
+        double price = 0;
+        for (AbstractGemstone gemstones : this.gemstonesInLace) {
+            price += gemstones.getPriceInUSDDollars();
+        }
+        this.priceInUSDDollars = price;
+        return priceInUSDDollars;
+    }
 
 }
 
