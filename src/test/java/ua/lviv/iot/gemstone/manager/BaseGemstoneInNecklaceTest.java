@@ -7,23 +7,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BaseGemstoneInNecklaceTest {
-    private List<AbstractGemstone> firstPartyOfGemstones;
-    private List<AbstractGemstone> secondPartyOfGemstones;
-    protected Necklace professionalNecklace = new Necklace();
-    protected Necklace amateurNecklace = new Necklace();
-    protected Necklace handmadeNecklace = new Necklace();
+    protected Necklace professionalNecklace = new Necklace(0.5);
+    protected Necklace amateurNecklace = new Necklace(0.3);
+    protected Necklace handmadeNecklace = new Necklace(0.8);
     protected List<Necklace> necklaces;
 
 
     @BeforeEach
     public void createGems() {
-        firstPartyOfGemstones = new LinkedList<AbstractGemstone>();
+        List<AbstractGemstone> firstPartyOfGemstones = new LinkedList<AbstractGemstone>();
         firstPartyOfGemstones.add(new Diamond("red", 999, "Kenya", "C", 20.5, 0.43, "p.d001", ChemicalType.II));
         firstPartyOfGemstones.add(new Ruby("red", 500, "Nigeria", "Al2O3", 12.5, 0.71, "p.r002", 0.0081));
         firstPartyOfGemstones.add(new Nephrite("green", 105, "Angola", "Са2 (Mg, Fe)5 [Si4O11]2[OH]2", 15.1, 0.90, "sp.n002", null));
 
 
-        secondPartyOfGemstones = new LinkedList<AbstractGemstone>();
+        List<AbstractGemstone> secondPartyOfGemstones = new LinkedList<AbstractGemstone>();
         secondPartyOfGemstones.add(new Pearl("pearl", 100, "Kenya", "CaCO3", 10, 0.31, "sp.p001"));
         secondPartyOfGemstones.add(new Pearl("pearl", 50, "Kenya", "CaCO3", 5.5, 0.25, "sp.p002"));
         secondPartyOfGemstones.add(new Ruby("red", 450, "Nigeria", "Al2O3", 11.5, 0.66, "p.r002", 0.0081));
@@ -34,22 +32,10 @@ public class BaseGemstoneInNecklaceTest {
         handmadeNecklace.addGemstones(secondPartyOfGemstones);
         handmadeNecklace.addGemstones(firstPartyOfGemstones);
 
-        professionalNecklace.calculatePriceInUSDDollars();
-        amateurNecklace.calculatePriceInUSDDollars();
-        handmadeNecklace.calculatePriceInUSDDollars();
-        professionalNecklace.calculateAllWeightInCarats();
-        amateurNecklace.calculateAllWeightInCarats();
-        handmadeNecklace.calculateAllWeightInCarats();
-
         necklaces = new LinkedList<>();
         necklaces.add(professionalNecklace);
         necklaces.add(amateurNecklace);
         necklaces.add(handmadeNecklace);
-
-
-    }
-
-    public void createNecklaces() {
 
     }
 }
