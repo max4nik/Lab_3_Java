@@ -18,7 +18,7 @@ public class GemstoneInNecklaceManager {
         List<AbstractGemstone> gemstonesForLace = this.necklace.getGemstonesInLace();
         List<AbstractGemstone> result = new LinkedList<>();
         for (AbstractGemstone gemstone : gemstonesForLace) {
-            if (gemstone.getTransparency() > minimalTransparencyType && gemstone.getTransparency() < maximalTransparencyType) {
+            if (gemstone.getTransparency() >= minimalTransparencyType && gemstone.getTransparency() <= maximalTransparencyType) {
                 result.add(gemstone);
             }
         }
