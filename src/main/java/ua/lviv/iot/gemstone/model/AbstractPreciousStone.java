@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.model;
 
-public abstract class AbstractPreciousStone extends AbstractGemstone{
+public abstract class AbstractPreciousStone extends AbstractGemstone {
 
     protected String specialPreciousStoneID;
 
@@ -18,4 +18,11 @@ public abstract class AbstractPreciousStone extends AbstractGemstone{
         this.specialPreciousStoneID = specialPreciousStoneID;
     }
 
+    public String getHeaders() {
+        return super.getHeaders() + "," + "specialPreciousStoneID";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + specialPreciousStoneID;
+    }
 }

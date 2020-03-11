@@ -16,4 +16,12 @@ public abstract class AbstractSemipreciousStone extends AbstractGemstone{
     public void setSpecialSemipreciousStoneID(String specialSemipreciousStoneID) {
         this.specialSemipreciousStoneID = specialSemipreciousStoneID;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + "," + "specialSemipreciousStoneID";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + specialSemipreciousStoneID;
+    }
 }

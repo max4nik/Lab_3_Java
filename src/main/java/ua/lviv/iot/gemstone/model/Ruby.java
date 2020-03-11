@@ -17,4 +17,11 @@ public class Ruby extends AbstractPreciousStone {
         this.refractiveIndex = refractiveIndex;
     }
 
+    public String getHeaders() {
+        return super.getHeaders() + "," + "refractiveIndex";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + refractiveIndex;
+    }
 }

@@ -15,4 +15,12 @@ public class Diamond extends AbstractPreciousStone{
     public void setChemicalType(ChemicalType chemicalType) {
         this.chemicalType = chemicalType;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + "," + "chemicalType";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + chemicalType;
+    }
 }

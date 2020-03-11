@@ -66,4 +66,13 @@ public abstract class AbstractGemstone {
     public double getTransparency() {
         return transparencyFromZeroToOne;
     }
+
+    public String getHeaders() {
+        return "color" + "," + "priceInUSDDollars" + "," + "countryOfOrigin" + "," + "chemicalFormula" + "," + "weightInCarats";
+    }
+
+    public String toCSV() {
+        return color + "," + priceInUSDDollars + "," + countryOfOrigin + "," + chemicalFormula + "," + weightInCarats;
+    }
+
 }
