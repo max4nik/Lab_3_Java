@@ -37,8 +37,11 @@ public class GemstoneInNecklaceManagerUtils {
     // sort with lambda
     public static void sortNecklacesByAmountOfGems(List<Necklace> necklaces, TypeOfSorting typeOfSorting) {
         int comparator = typeOfSorting == TypeOfSorting.DESCENDING ? -1 : 1;
-        necklaces.sort((firstNecklace, secondNecklace) -> comparator * (firstNecklace.getAmountOfGems() - secondNecklace.getAmountOfGems()));
+        necklaces.sort((firstNecklace, secondNecklace) ->  comparator * (firstNecklace.getAmountOfGems() - secondNecklace.getAmountOfGems()));
+
+
     }
+
 
     class NecklaceSorterByAllWeightInCarats implements Comparator<Necklace> {
         @Override
