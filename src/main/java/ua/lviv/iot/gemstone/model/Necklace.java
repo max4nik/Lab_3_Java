@@ -83,12 +83,19 @@ public class Necklace {
 
     private Integer calculateAmountOfGems() {
         Integer countOfGems = 0;
-        for (AbstractGemstone gemstone : this.gemstonesInLace) {
+        for (int iterator = 0; iterator < this.gemstonesInLace.size(); iterator++) {
             countOfGems++;
         }
         this.amountOfGems = countOfGems;
         return amountOfGems;
     }
 
+    public String getHeaders() {
+        return "gemstonesInLace" + "," + "priceInUSDDollars" + "," + "allWeightInCarats" + "," + "necklaceLengthInMeters" + "," + "amountOfGems";
+    }
+
+    public String toCSV() {
+        return gemstonesInLace + "," + priceInUSDDollars + "," + allWeightInCarats + "," + necklaceLengthInMeters + "," + amountOfGems;
+    }
 }
 

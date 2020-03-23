@@ -18,4 +18,12 @@ public class Nephrite extends AbstractSemipreciousStone {
     public void setImpurities(String[] impurities) {
         this.impurities = impurities;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + "," + "impurities";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + Arrays.toString(impurities);
+    }
 }

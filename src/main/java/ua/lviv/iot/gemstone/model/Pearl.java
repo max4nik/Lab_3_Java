@@ -13,4 +13,12 @@ public class Pearl extends AbstractSemipreciousStone{
         return weightInGrams;
     }
 
+    public String getHeaders() {
+        return super.getHeaders() + "," + "weightInGrams";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + weightInGrams;
+    }
+
 }
