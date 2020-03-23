@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GemstoneWriterPrinterTest extends BaseGemstoneInNecklaceTest {
     private GemstoneWriter gemstoneWriter;
     private GemstoneReader gemstoneReader;
-    private static final String FILE = "Lab5.txt";
+    private static final String FILE = "Lab5.csv";
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.gemstoneWriter = new GemstoneWriter();
         this.gemstoneReader = new GemstoneReader();
     }
