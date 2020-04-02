@@ -1,15 +1,22 @@
 package ua.lviv.iot.gemstone.model;
 
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
+@Entity
 public class Necklace {
 
-    private List<AbstractGemstone> gemstonesInLace = new LinkedList<>();
+
     private Double priceInUSDDollars;
+    @Transient
+    private List<AbstractGemstone> gemstonesInLace = new LinkedList<>();
     private Double allWeightInCarats;
     private Double necklaceLengthInMeters;
+    @Transient
     private Integer amountOfGems;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer necklaceId;
 
     public Necklace() {
@@ -38,7 +45,6 @@ public class Necklace {
     }
 
 
-
     public List<AbstractGemstone> getGemstonesInLace() {
         return gemstonesInLace;
     }
@@ -64,6 +70,7 @@ public class Necklace {
         calculateAllWeightInCarats();
         return allWeightInCarats;
     }
+
     public double getNecklaceLengthInMeters() {
         return necklaceLengthInMeters;
     }
