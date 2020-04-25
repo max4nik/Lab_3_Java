@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.model;
 
-public class Diamond extends AbstractPreciousStone{
+public class Diamond extends PreciousStone {
     private ChemicalType chemicalType;
 
     public Diamond(String color, double pricePerUSDDollar, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne, String specialPreciousStoneID, ChemicalType chemicalType) {

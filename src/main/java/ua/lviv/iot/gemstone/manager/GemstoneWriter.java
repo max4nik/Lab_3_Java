@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.manager;
 
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
+import ua.lviv.iot.gemstone.model.Gemstone;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class GemstoneWriter {
         this.writer = writer;
     }
 
-    public void writeToFile(List<AbstractGemstone> gemstones, String fileName) {
+    public void writeToFile(List<Gemstone> gemstones, String fileName) {
         StringBuilder allHeaders = new StringBuilder();
         StringBuilder allCSV = new StringBuilder();
         gemstones.forEach(gemstone -> allHeaders.append(gemstone.getHeaders()).append("\n"));
