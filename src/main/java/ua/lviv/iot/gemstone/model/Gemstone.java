@@ -1,22 +1,40 @@
 package ua.lviv.iot.gemstone.model;
 
-public abstract class AbstractGemstone {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "\"gemstone\"")
+public class Gemstone {
 
     protected String color;
-    protected double priceInUSDDollars;
+    protected Double priceInUSD;
     protected String countryOfOrigin;
     protected String chemicalFormula;
-    protected double weightInCarats;
+    protected Double weightInCarats;
 
     protected double transparencyFromZeroToOne;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idGemstone;
 
-    public AbstractGemstone(String color, double priceInUSDDollars, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "necklace_id")
+    @JsonIgnoreProperties("gemstones")
+    private Necklace necklace;
+
+    public Gemstone(String color, double priceInUSD, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne) {
         this.color = color;
-        this.priceInUSDDollars = priceInUSDDollars;
+        this.priceInUSD = priceInUSD;
         this.countryOfOrigin = countryOfOrigin;
         this.chemicalFormula = chemicalFormula;
         this.weightInCarats = weightInCarats;
         this.transparencyFromZeroToOne = transparencyFromZeroToOne;
+    }
+
+    public Gemstone() {
+
     }
 
     public String getColor() {
@@ -27,12 +45,12 @@ public abstract class AbstractGemstone {
         this.color = color;
     }
 
-    public double getPriceInUSDDollars() {
-        return priceInUSDDollars;
+    public Double getPriceInUSD() {
+        return priceInUSD;
     }
 
-    public void setPriceInUSDDollars(double priceInUSDDollars) {
-        this.priceInUSDDollars = priceInUSDDollars;
+    public void setPriceInUSD(Double priceInUSDDollars) {
+        this.priceInUSD = priceInUSDDollars;
     }
 
     public String getCountryOfOrigin() {
@@ -51,11 +69,11 @@ public abstract class AbstractGemstone {
         this.chemicalFormula = chemicalFormula;
     }
 
-    public double getWeightInCarats() {
+    public Double getWeightInCarats() {
         return weightInCarats;
     }
 
-    public void setWeightInCarats(double weightInCarats) {
+    public void setWeightInCarats(Double weightInCarats) {
         this.weightInCarats = weightInCarats;
     }
 
@@ -63,16 +81,33 @@ public abstract class AbstractGemstone {
         this.transparencyFromZeroToOne = transparencyFromZeroToOne;
     }
 
-    public double getTransparency() {
+    public double getTransparencyFromZeroToOne() {
         return transparencyFromZeroToOne;
     }
 
+    @Transient
     public String getHeaders() {
         return "color" + "," + "priceInUSDDollars" + "," + "countryOfOrigin" + "," + "chemicalFormula" + "," + "weightInCarats";
     }
 
     public String toCSV() {
-        return color + "," + priceInUSDDollars + "," + countryOfOrigin + "," + chemicalFormula + "," + weightInCarats;
+        return color + "," + priceInUSD + "," + countryOfOrigin + "," + chemicalFormula + "," + weightInCarats;
+    }
+
+    public void setIdGemstone(Integer idGemstone) {
+        this.idGemstone = idGemstone;
+    }
+
+    public Integer getIdGemstone() {
+        return idGemstone;
+    }
+
+    public Necklace getNecklace() {
+        return necklace;
+    }
+
+    public void setNecklace(Necklace necklace) {
+        this.necklace = necklace;
     }
 
 }
