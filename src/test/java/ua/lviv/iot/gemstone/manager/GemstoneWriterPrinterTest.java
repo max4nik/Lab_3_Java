@@ -2,7 +2,7 @@ package ua.lviv.iot.gemstone.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
+import ua.lviv.iot.gemstone.model.Gemstone;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,7 +25,7 @@ class GemstoneWriterPrinterTest extends BaseGemstoneInNecklaceTest {
 
     @Test
     void testWriteToFileAndReadFromFile() throws IOException {
-        List<AbstractGemstone> gemstonesInFile = handmadeNecklace.getGemstonesInLace();
+        List<Gemstone> gemstonesInFile = handmadeNecklace.getGemstonesInLace();
         try (Writer fileWriter = new FileWriter(FILE)) {
             this.gemstoneWriter.setWriter(fileWriter);
             this.gemstoneWriter.writeToFile(gemstonesInFile, FILE);
