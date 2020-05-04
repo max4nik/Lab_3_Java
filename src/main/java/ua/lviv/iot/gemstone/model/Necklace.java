@@ -10,20 +10,34 @@ public class Necklace {
     private Double allWeightInCarats;
     private Double necklaceLengthInMeters;
     private Integer amountOfGems;
+    private Integer necklaceId;
 
+    public Necklace() {
+
+    }
 
     public Necklace(List<AbstractGemstone> gemstonesInLace, Double necklaceLengthInMeters) {
         this.gemstonesInLace = gemstonesInLace;
         this.necklaceLengthInMeters = necklaceLengthInMeters;
     }
 
+    public Necklace(List<AbstractGemstone> gemstonesInLace) {
+        this(gemstonesInLace, null);
+    }
+
+    public Integer getId() {
+        return necklaceId;
+    }
+
+    public void setId(Integer necklaceId) {
+        this.necklaceId = necklaceId;
+    }
+
     public Necklace(Double necklaceLengthInMeters) {
         this.necklaceLengthInMeters = necklaceLengthInMeters;
     }
 
-    public Necklace(List<AbstractGemstone> gemstonesInLace) {
-        this(gemstonesInLace, null);
-    }
+
 
     public List<AbstractGemstone> getGemstonesInLace() {
         return gemstonesInLace;
@@ -34,15 +48,22 @@ public class Necklace {
     }
 
     public double getPriceInUSDDollars() {
+        return priceInUSDDollars;
+    }
+
+    public double returnCalculatedPriceInUSDDollars() {
         calculatePriceInUSDDollars();
         return priceInUSDDollars;
     }
 
     public double getAllWeightInCarats() {
-        calculateAllWeightInCarats();
         return allWeightInCarats;
     }
 
+    public double returnCalculatedAllWeightInCarats() {
+        calculateAllWeightInCarats();
+        return allWeightInCarats;
+    }
     public double getNecklaceLengthInMeters() {
         return necklaceLengthInMeters;
     }
@@ -96,6 +117,18 @@ public class Necklace {
 
     public String toCSV() {
         return gemstonesInLace + "," + priceInUSDDollars + "," + allWeightInCarats + "," + necklaceLengthInMeters + "," + amountOfGems;
+    }
+
+    @Override
+    public String toString() {
+        return "Necklace{" +
+                "gemstonesInLace=" + gemstonesInLace +
+                ", priceInUSDDollars=" + priceInUSDDollars +
+                ", allWeightInCarats=" + allWeightInCarats +
+                ", necklaceLengthInMeters=" + necklaceLengthInMeters +
+                ", amountOfGems=" + amountOfGems +
+                ", necklaceId=" + necklaceId +
+                '}';
     }
 }
 

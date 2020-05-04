@@ -11,9 +11,9 @@ public class GemstoneInNecklaceManagerUtilsTest extends BaseGemstoneInNecklaceTe
     @Test
     public void testSortNecklacesByPriceAsc() {
         GemstoneInNecklaceManagerUtils.sortNecklacesByPriceInUSDDollars(necklaces, TypeOfSorting.ASCENDING);
-        assertEquals(699, necklaces.get(0).getPriceInUSDDollars());
-        assertEquals(1604, necklaces.get(1).getPriceInUSDDollars());
-        assertEquals(2303, necklaces.get(2).getPriceInUSDDollars());
+        assertEquals(699, necklaces.get(0).returnCalculatedPriceInUSDDollars());
+        assertEquals(1604, necklaces.get(1).returnCalculatedPriceInUSDDollars());
+        assertEquals(2303, necklaces.get(2).returnCalculatedPriceInUSDDollars());
 
     }
 
@@ -22,8 +22,8 @@ public class GemstoneInNecklaceManagerUtilsTest extends BaseGemstoneInNecklaceTe
     public void testSortNecklacesByWeightInCaratsDesc() {
         GemstoneInNecklaceManagerUtils.sortNecklacesByAllWeightInCarats(necklaces, TypeOfSorting.DESCENDING);
         assertEquals(89.39999999999999, necklaces.get(0).getAllWeightInCarats());
-        assertEquals(48.1, necklaces.get(1).getAllWeightInCarats());
-        assertEquals(41.3, necklaces.get(2).getAllWeightInCarats());
+        assertEquals(48.1, necklaces.get(1).returnCalculatedAllWeightInCarats());
+        assertEquals(41.3, necklaces.get(2).returnCalculatedAllWeightInCarats());
     }
 
     @Test
