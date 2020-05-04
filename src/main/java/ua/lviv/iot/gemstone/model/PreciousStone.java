@@ -1,11 +1,11 @@
 package ua.lviv.iot.gemstone.model;
 
-public abstract class AbstractPreciousStone extends AbstractGemstone {
+public class PreciousStone extends Gemstone {
 
     protected String specialPreciousStoneID;
 
 
-    public AbstractPreciousStone(String color, double pricePerUSDDollar, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne, String specialPreciousStoneID) {
+    public PreciousStone(String color, double pricePerUSDDollar, String countryOfOrigin, String chemicalFormula, double weightInCarats, double transparencyFromZeroToOne, String specialPreciousStoneID) {
         super(color, pricePerUSDDollar, countryOfOrigin, chemicalFormula, weightInCarats, transparencyFromZeroToOne);
         this.specialPreciousStoneID = specialPreciousStoneID;
     }

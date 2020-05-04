@@ -2,7 +2,7 @@ package ua.lviv.iot.gemstone.model;
 
 import java.util.Arrays;
 
-public class Nephrite extends AbstractSemipreciousStone {
+public class Nephrite extends SemipreciousStone {
 
     public String[] impurities;
 

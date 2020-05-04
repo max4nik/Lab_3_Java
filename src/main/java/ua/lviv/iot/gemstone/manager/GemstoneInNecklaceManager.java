@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.manager;
 
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
+import ua.lviv.iot.gemstone.model.Gemstone;
 import ua.lviv.iot.gemstone.model.Necklace;
 
 import java.util.LinkedList;
@@ -14,11 +14,11 @@ public class GemstoneInNecklaceManager {
         this.necklace = necklace;
     }
 
-    public List<AbstractGemstone> findGemstonesWithTransparencyBetween(double minimalTransparencyType, double maximalTransparencyType) {
-        List<AbstractGemstone> gemstonesForLace = this.necklace.getGemstonesInLace();
-        List<AbstractGemstone> result = new LinkedList<>();
-        for (AbstractGemstone gemstone : gemstonesForLace) {
-            if (gemstone.getTransparency() >= minimalTransparencyType && gemstone.getTransparency() <= maximalTransparencyType) {
+    public List<Gemstone> findGemstonesWithTransparencyBetween(double minimalTransparencyType, double maximalTransparencyType) {
+        List<Gemstone> gemstonesForLace = this.necklace.getGemstonesInLace();
+        List<Gemstone> result = new LinkedList<>();
+        for (Gemstone gemstone : gemstonesForLace) {
+            if (gemstone.getTransparencyFromZeroToOne() >= minimalTransparencyType && gemstone.getTransparencyFromZeroToOne() <= maximalTransparencyType) {
                 result.add(gemstone);
             }
         }

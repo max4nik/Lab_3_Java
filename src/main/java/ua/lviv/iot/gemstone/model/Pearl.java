@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.model;
 
-public class Pearl extends AbstractSemipreciousStone{
+public class Pearl extends SemipreciousStone {
 
     private double weightInGrams;
 

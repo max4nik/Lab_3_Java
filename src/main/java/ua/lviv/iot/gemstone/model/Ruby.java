@@ -1,6 +1,6 @@
 package ua.lviv.iot.gemstone.model;
 
-public class Ruby extends AbstractPreciousStone {
+public class Ruby extends PreciousStone {
 
     private double refractiveIndex;
 

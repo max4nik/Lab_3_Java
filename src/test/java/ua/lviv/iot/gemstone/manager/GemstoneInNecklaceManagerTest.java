@@ -2,7 +2,7 @@ package ua.lviv.iot.gemstone.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.gemstone.model.AbstractGemstone;
+import ua.lviv.iot.gemstone.model.Gemstone;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,14 +21,14 @@ public class GemstoneInNecklaceManagerTest extends BaseGemstoneInNecklaceTest {
     @Test
     void testFindGemstonesWithTransparencyBetween() {
 
-        List<AbstractGemstone> gems = gemstoneInNecklaceManager.findGemstonesWithTransparencyBetween(0.2, 0.8);
+        List<Gemstone> gems = gemstoneInNecklaceManager.findGemstonesWithTransparencyBetween(0.2, 0.8);
         assertEquals(2, gems.size());
 
         //sort transparencies
         double transparencies[] = new double[gems.size()];
         int iterator = 0;
-        for (AbstractGemstone gemstone : gems) {
-            transparencies[iterator] = gems.get(iterator).getTransparency();
+        for (Gemstone gemstone : gems) {
+            transparencies[iterator] = gems.get(iterator).getTransparencyFromZeroToOne();
             iterator++;
         }
         Arrays.sort(transparencies);
